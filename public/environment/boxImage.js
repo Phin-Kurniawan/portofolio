@@ -13,26 +13,23 @@ renderer.setClearColor(0x000000, 0);
 const controls = new OrbitControls(camera, renderer.domElement);
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.0; 
-const texture = new THREE.TextureLoader().load('images/PhinKurniawan.jpg');
-texture.minFilter = THREE.LinearFilter;
-texture.magFilter = THREE.LinearFilter;
-texture.anisotropy = renderer.capabilities.getMaxAnisotropy();   
+const texture = new THREE.TextureLoader().load('images/colored_phin_final (1).png');
 
-texture.generateMipmaps = false; 
+const texture2 = new THREE.TextureLoader().load('images/colored_phin_final (1) (1).png');
 const materials = [
     new THREE.MeshStandardMaterial({ map: texture, roughness: 0.5 }), // Example values
-    new THREE.MeshStandardMaterial({ map: texture, roughness: 0.5, emissive: 0x111155, emissiveIntensity: 0.1 }),
+    new THREE.MeshStandardMaterial({ map: texture2, roughness: 0.5, emissive: 0x111155, emissiveIntensity: 0.1 }),
     new THREE.MeshStandardMaterial({ map: texture, roughness: 0.5, emissive: 0x111155, emissiveIntensity: 0.1 }),
     new THREE.MeshStandardMaterial({ map: texture, roughness: 0.5, emissive: 0x111155, emissiveIntensity: 0.1 }),
     new THREE.MeshStandardMaterial({ map: texture, roughness: 0.5, emissive: 0x111155, emissiveIntensity: 0.1 }),
     new THREE.MeshStandardMaterial({ map: texture, roughness: 0.5, emissive: 0x111155, emissiveIntensity: 0.1 })
 ];
 
-const geometry = new THREE.BoxGeometry(12,14, 12);
+const geometry = new THREE.BoxGeometry(11,14, 11);
 const cube = new THREE.Mesh(geometry, materials);
 scene.add(cube);
 const directionalLight = new THREE.DirectionalLight(0xffffff, 2);  // Increase intensity
-const ambientLight = new THREE.AmbientLight(0xffffff, 2);     // Adjust to preference
+const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);     // Adjust to preference
 
 scene.add(directionalLight);
 scene.add(ambientLight);
